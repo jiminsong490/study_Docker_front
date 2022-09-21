@@ -71,8 +71,4 @@ jobs:
                   --deployment-config-name CodeDeployDefault.AllAtOnce
                   --deployment-group-name study_docker_web_group
                   --s3-location bucket=dockerdistributetestjimin,bundleType=zip,key=test/test.zip
-
-            # - name: copy
-            #   run: |
-            #       cp ../../front/package.json ./test
 # test
