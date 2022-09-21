@@ -54,11 +54,14 @@ jobs:
             - name: zip file
               run: zip -r test.zip ./build ./appspec.yml
 
+            - name: AWS configure credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ap-northeast-2
+
             - name: upload to S3
-              env:
-                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  AWS_EC2_METADATA_DISABLED: true
               run: |
                   aws s3 cp --region ap-northeast-2 ./test.zip s3://dockerdistributetestjimin/test/test.zip
 
