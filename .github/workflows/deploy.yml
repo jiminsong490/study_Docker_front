@@ -63,13 +63,16 @@ jobs:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
               run: |
-                  aws s3 cp \
-                  --recursive \
-                  --region ap-northeast-2 \
-                  build s3://dockerdistributetestjimin
+                  run: aws s3 cp --region ap-northeast-2 ./test.zip s3://dockerdistributetestjimin
+
+            - name: deploy with AWS codeDeploy
+              run: aws deploy create-deployment
+                  --application-name codedeploy_role
+                  --deployment-config-name CodeDeployDefault.OneAtATime
+                  --deployment-group-name study_docker_web_group
+                  --s3-location bucket=dockerdistributetestjimin,bundleType=zip,key=test/test.zip
 
             # - name: copy
             #   run: |
             #       cp ../../front/package.json ./test
-
 # test
