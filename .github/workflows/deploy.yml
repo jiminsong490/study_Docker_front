@@ -66,7 +66,7 @@ jobs:
                   --application-name codedeploy_role
                   --deployment-config-name CodeDeployDefault.AllAtOnce
                   --deployment-group-name study_docker_web_group
-                  --s3-location bucket=dockerdistributetestjimin,bundleType=zip,key=test/test.zip
+                  --s3-location bucket=test,bundleType=zip,key=test/test.zip
 
             # - name: copy
             #   run: |
