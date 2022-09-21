@@ -52,7 +52,7 @@ jobs:
               run: npm run build
 
             - name: zip file
-              run: zip -r test.zip ./build ./appspec.yml
+              run: zip -r test.zip ./build ./appspec.yml ./Dockerfile
 
             - name: AWS configure credentials
               uses: aws-actions/configure-aws-credentials@v1
