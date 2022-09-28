@@ -12,7 +12,7 @@ const Test = () => {
         <>
             <button onClick={a}>클릭</button>
             <p>{result}</p>
-            <p>github a c ios 성공</p>
+            <p>githu b a c ios 성공</p>
             <p>test </p>
         </>
     )
