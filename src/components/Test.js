@@ -12,8 +12,8 @@ const Test = () => {
         <>
             <button onClick={a}>클릭</button>
             <p>{result}</p>
-            <p>github actios 성공</p>
-            <p>test</p>
+            <p>github a ctios 성공</p>
+            <p>test </p>
         </>
     )
 }
